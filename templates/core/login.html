@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+<script>
+	setTimeout(function(){window.location.href="/"},0.0);
+</script>
+{% else %}
+<form class="form-signin" method="POST">
+  <h1>Your Logo Here</h1>
+  {% csrf_token %}
+  <div class="form-group">
+    <div class="">
+      {{form.username}}
+    </div>
+  </div>
+  <div class="form-group">
+    {{form.password}}
+  </div>
+  <button class="btn-primary btn-lg btn-block" type="submit">Sign In</button>
+</form>
+{% endif %}
+{% endblock content %}
